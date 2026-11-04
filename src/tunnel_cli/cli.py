@@ -224,7 +224,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Guided local SSH tunnels using existing config aliases.")
     parser.add_argument("--config", type=Path, help="SSH config to use (default: ~/.ssh/config)")
     parser.add_argument("--state-dir", type=Path, help="Private, short state directory (default: ~/.tunnel)")
-    parser.add_argument("--version", action="version", version="tunnel 0.1.0")
+    parser.add_argument("--version", action="version", version="tunnel 0.1.1")
     commands = parser.add_subparsers(dest="command")
     commands.add_parser("list", help="Print owned tunnel status without prompting")
     for name in ("stop", "restart"):

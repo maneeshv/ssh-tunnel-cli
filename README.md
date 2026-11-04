@@ -9,9 +9,11 @@ Python + Questionary, using your Mac's existing OpenSSH client for connections a
 Requires macOS, Python 3.11 or later, [uv](https://docs.astral.sh/uv/), and `/usr/bin/ssh`.
 
 ```sh
-uv tool install 'git+https://github.com/maneeshv/ssh-tunnel-cli@v0.1.0'
+uv tool install ssh-tunnel-cli
 tunnel
 ```
+
+Alternatively, use `pipx install ssh-tunnel-cli`, or `python -m pip install ssh-tunnel-cli` inside a virtual environment. The Python package exposes the same `tunnel` command.
 
 If your shell cannot find `tunnel`, run `uv tool update-shell` and restart the shell.
 
@@ -88,7 +90,7 @@ Opt-in integration tests start an isolated loopback `sshd`, generate disposable 
 TUNNEL_SSH_INTEGRATION=1 uv run python -m unittest tests.test_ssh_integration -v
 ```
 
-See [the specification](SPEC.md) for requirements, decisions, and the [original Warp mockup](design/tunnel-mockup.png). The mockup is a design reference, not a screenshot of the implemented terminal UI.
+See [the specification](https://github.com/maneeshv/ssh-tunnel-cli/blob/main/SPEC.md) for requirements, decisions, and the [original Warp mockup](https://github.com/maneeshv/ssh-tunnel-cli/blob/main/design/tunnel-mockup.png). The mockup is a design reference, not a screenshot of the implemented terminal UI.
 
 Verified on 2026-11-04 with Python 3.11.11 and macOS OpenSSH 10.3p1: all 73 tests passed, including 12 real-SSH integration tests. The wheel and source archive build successfully, and the wheel's CLI runs independently of the source checkout. Menus were inspected in a 96-column terminal with color disabled. Manual Warp rendering and password/passphrase authentication were not checked; generated-key authentication and native host-key confirmation were exercised through a PTY.
 
@@ -100,4 +102,4 @@ When reporting a bug, include the macOS, Python, and OpenSSH versions and saniti
 
 ## License
 
-[MIT](LICENSE). The mockup is an AI-generated design reference; the project is not affiliated with Warp.
+[MIT](https://github.com/maneeshv/ssh-tunnel-cli/blob/main/LICENSE). The mockup is an AI-generated design reference; the project is not affiliated with Warp.

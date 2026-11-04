@@ -31,11 +31,15 @@ name = "ssh-tunnel-cli"
 version = "0.1.1"
 source = { editable = "." }
 dependencies = [
+    { name = "prompt-toolkit" },
     { name = "questionary" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "questionary", specifier = "==2.1.1" }]
+requires-dist = [
+    { name = "prompt-toolkit", specifier = "==3.0.53" },
+    { name = "questionary", specifier = "==2.1.1" },
+]
 
 [[package]]
 name = "wcwidth"

@@ -17,7 +17,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Internet",
 ]
-dependencies = ["questionary==2.1.1"]
+dependencies = ["questionary==2.1.1", "prompt-toolkit==3.0.53"]
 
 [project.urls]
 Repository = "https://github.com/maneeshv/ssh-tunnel-cli"

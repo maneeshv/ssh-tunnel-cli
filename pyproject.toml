@@ -30,4 +30,4 @@ tunnel = "tunnel_cli.cli:main"
 packages = ["src/tunnel_cli"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/", "tests/", "design/", "README.md", "SPEC.md", "LICENSE", "pyproject.toml", "uv.lock"]
+only-include = ["src", "tests", "design", "README.md", "SPEC.md", "LICENSE", "pyproject.toml", "uv.lock"]

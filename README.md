@@ -6,16 +6,29 @@ Python + Questionary, using your Mac's existing OpenSSH client for connections a
 
 ## Install
 
-Requires macOS, Python 3.11 or later, [uv](https://docs.astral.sh/uv/), and `/usr/bin/ssh`.
+Requires macOS and `/usr/bin/ssh`.
+
+With [Homebrew](https://brew.sh/), Python and the package dependencies are managed for you:
+
+```sh
+brew install maneeshv/tap/ssh-tunnel-cli
+tunnel
+```
+
+Update with `brew upgrade maneeshv/tap/ssh-tunnel-cli`. The formula lives in [maneeshv/homebrew-tap](https://github.com/maneeshv/homebrew-tap).
+
+Alternatively, use [uv](https://docs.astral.sh/uv/) with Python 3.11 or later:
 
 ```sh
 uv tool install ssh-tunnel-cli
 tunnel
 ```
 
-Alternatively, use `pipx install ssh-tunnel-cli`, or `python -m pip install ssh-tunnel-cli` inside a virtual environment. The Python package exposes the same `tunnel` command.
+You can also use `pipx install ssh-tunnel-cli`, or `python -m pip install ssh-tunnel-cli` inside a virtual environment. All installation methods expose the same `tunnel` command and use the same private state directory.
 
 If your shell cannot find `tunnel`, run `uv tool update-shell` and restart the shell.
+
+If you have installed through more than one package manager, `command -v tunnel` shows which installation your shell uses. You only need one installation method.
 
 To run or develop from a checkout:
 
@@ -93,20 +106,6 @@ TUNNEL_SSH_INTEGRATION=1 uv run python -m unittest tests.test_ssh_integration -v
 See [the specification](https://github.com/maneeshv/ssh-tunnel-cli/blob/main/SPEC.md) for requirements, decisions, and the [original Warp mockup](https://github.com/maneeshv/ssh-tunnel-cli/blob/main/design/tunnel-mockup.png). The mockup is a design reference, not a screenshot of the implemented terminal UI.
 
 Verified on 2026-11-04 with Python 3.11.11 and macOS OpenSSH 10.3p1: all 73 tests passed, including 12 real-SSH integration tests. The wheel and source archive build successfully, and the wheel's CLI runs independently of the source checkout. Menus were inspected in a 96-column terminal with color disabled. Manual Warp rendering and password/passphrase authentication were not checked; generated-key authentication and native host-key confirmation were exercised through a PTY.
-
-## TypeScript comparison
-
-A separate [TypeScript alternative](https://github.com/maneeshv/ssh-tunnel-cli/tree/main/typescript-version) is available for comparison. Run `npm ci && npm run build && npm start` from `typescript-version/`. It uses the `tunnel-ts` command and its own state directory; npm publication is pending evaluation.
-
-## Rust comparison
-
-A separate [Rust alternative](https://github.com/maneeshv/ssh-tunnel-cli/tree/main/rust-version) builds a standalone `tunnel-rs` executable with its own state directory. From the repository root, run:
-
-```sh
-cargo run --locked --manifest-path rust-version/Cargo.toml
-```
-
-Requires macOS and Rust 1.89 or later to build. Crates.io publication is pending evaluation.
 
 ## Contributing
 

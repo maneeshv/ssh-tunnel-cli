@@ -15,4 +15,8 @@ For a failed initial authentication attempt, finish the publisher configuration 
 
 After release, verify `https://pypi.org/project/ssh-tunnel-cli/` and install from PyPI in an isolated environment before announcing it.
 
-The TypeScript comparison has its own package and no automatic npm publishing workflow. See [typescript-version/README.md](typescript-version/README.md).
+## Homebrew
+
+The macOS formula is maintained in [maneeshv/homebrew-tap](https://github.com/maneeshv/homebrew-tap), at `Formula/ssh-tunnel-cli.rb`. It installs the published PyPI source distribution and checksummed dependencies into a private Homebrew virtual environment.
+
+After a Python release, update the formula's source URL and SHA-256 from that release's PyPI metadata. Update dependency resources when their pinned versions change, and test the formula with `brew install --build-from-source`, `brew test`, `brew style`, and `brew audit --strict` before pushing the tap. No Homebrew Core submission is required for this independent tap.

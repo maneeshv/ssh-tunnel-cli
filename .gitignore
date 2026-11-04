@@ -10,3 +10,5 @@ dist/
 .env.*
 .tunnel/
 *.egg-info/
+node_modules/
+*.tgz

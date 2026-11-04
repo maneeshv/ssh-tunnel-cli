@@ -26,3 +26,25 @@ jobs:
         run: |
           uv run --isolated --no-project --with dist/*.whl tunnel --version
           uv run --isolated --no-project --with dist/*.tar.gz tunnel --version
+
+  typescript:
+    runs-on: macos-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: typescript-version
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm pack
+      - name: Verify installed npm executable
+        run: |
+          npm install --prefix "$RUNNER_TEMP/tunnel-ts-smoke" --ignore-scripts ./ssh-tunnel-cli-ts-0.1.0.tgz
+          "$RUNNER_TEMP/tunnel-ts-smoke/node_modules/.bin/tunnel-ts" --version

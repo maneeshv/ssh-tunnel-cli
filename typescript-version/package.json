@@ -1,0 +1,29 @@
+{
+  "name": "ssh-tunnel-cli-ts",
+  "version": "0.1.0",
+  "description": "Interactive SSH tunnels using native OpenSSH — TypeScript comparison build",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22.17.0" },
+  "os": ["darwin"],
+  "bin": { "tunnel-ts": "dist/src/cli.js" },
+  "files": ["dist/src/", "LICENSE"],
+  "imports": {
+    "#core": "./dist/src/core.js",
+    "#config": "./dist/src/config.js",
+    "#prompts": "./dist/src/prompts.js",
+    "#cli": "./dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/src/cli.js",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "test:ssh": "npm run build && TUNNEL_SSH_INTEGRATION=1 python3 tests/test_ssh_integration.py -v",
+    "prepack": "npm run build"
+  },
+  "repository": { "type": "git", "url": "git+https://github.com/maneeshv/ssh-tunnel-cli.git", "directory": "typescript-version" },
+  "bugs": { "url": "https://github.com/maneeshv/ssh-tunnel-cli/issues" },
+  "publishConfig": { "access": "public" },
+  "dependencies": { "@inquirer/prompts": "8.7.5" },
+  "devDependencies": { "typescript": "7.0.2", "@types/node": "22.20.5", "@inquirer/testing": "3.3.16" }
+}

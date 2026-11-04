@@ -94,6 +94,10 @@ See [the specification](https://github.com/maneeshv/ssh-tunnel-cli/blob/main/SPE
 
 Verified on 2026-11-04 with Python 3.11.11 and macOS OpenSSH 10.3p1: all 73 tests passed, including 12 real-SSH integration tests. The wheel and source archive build successfully, and the wheel's CLI runs independently of the source checkout. Menus were inspected in a 96-column terminal with color disabled. Manual Warp rendering and password/passphrase authentication were not checked; generated-key authentication and native host-key confirmation were exercised through a PTY.
 
+## TypeScript comparison
+
+A separate [TypeScript alternative](https://github.com/maneeshv/ssh-tunnel-cli/tree/main/typescript-version) is available for comparison. Run `npm ci && npm run build && npm start` from `typescript-version/`. It uses the `tunnel-ts` command and its own state directory; npm publication is pending evaluation.
+
 ## Contributing
 
 Small fixes and improvements are welcome. Open an issue for substantial behavior changes before implementing them. Use absolute imports, keep dependencies minimal, and run the checks above before submitting a pull request. Include a regression test for behavior changes. CI runs unit/prompt tests and package smoke checks on macOS; real-SSH tests remain opt-in.

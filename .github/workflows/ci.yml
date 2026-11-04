@@ -49,3 +49,24 @@ jobs:
         run: |
           npm install --prefix "$RUNNER_TEMP/tunnel-ts-smoke" --ignore-scripts ./ssh-tunnel-cli-ts-0.1.0.tgz
           "$RUNNER_TEMP/tunnel-ts-smoke/node_modules/.bin/tunnel-ts" --version
+
+  rust:
+    runs-on: macos-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: rust-version
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install minimum supported Rust
+        run: rustup toolchain install 1.89.0 --profile minimal --component rustfmt --component clippy
+      - run: cargo +1.89.0 fmt --check
+      - run: cargo +1.89.0 clippy --locked --all-targets -- -D warnings
+      - run: cargo +1.89.0 test --locked
+      - name: Verify standalone executable
+        run: |
+          cargo +1.89.0 install --locked --path . --root "$RUNNER_TEMP/tunnel-rs-smoke"
+          "$RUNNER_TEMP/tunnel-rs-smoke/bin/tunnel-rs" --version
+          "$RUNNER_TEMP/tunnel-rs-smoke/bin/tunnel-rs" --help

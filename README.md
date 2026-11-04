@@ -98,6 +98,16 @@ Verified on 2026-11-04 with Python 3.11.11 and macOS OpenSSH 10.3p1: all 73 test
 
 A separate [TypeScript alternative](https://github.com/maneeshv/ssh-tunnel-cli/tree/main/typescript-version) is available for comparison. Run `npm ci && npm run build && npm start` from `typescript-version/`. It uses the `tunnel-ts` command and its own state directory; npm publication is pending evaluation.
 
+## Rust comparison
+
+A separate [Rust alternative](https://github.com/maneeshv/ssh-tunnel-cli/tree/main/rust-version) builds a standalone `tunnel-rs` executable with its own state directory. From the repository root, run:
+
+```sh
+cargo run --locked --manifest-path rust-version/Cargo.toml
+```
+
+Requires macOS and Rust 1.89 or later to build. Crates.io publication is pending evaluation.
+
 ## Contributing
 
 Small fixes and improvements are welcome. Open an issue for substantial behavior changes before implementing them. Use absolute imports, keep dependencies minimal, and run the checks above before submitting a pull request. Include a regression test for behavior changes. CI runs unit/prompt tests and package smoke checks on macOS; real-SSH tests remain opt-in.

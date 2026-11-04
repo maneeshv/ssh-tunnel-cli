@@ -1,0 +1,66 @@
+Use case: ui-mockup.
+Create one high-resolution, polished design review board for an interactive SSH tunneling CLI named "tunnel", using the attached Warp screenshot as the PRIMARY SCREENSHOT REFERENCE. This is a proposed terminal utility, not a Warp redesign.
+Reference role: preserve the supplied screenshot's dark teal translucent terminal, city-building wallpaper, macOS traffic lights, compact top toolbar and centered Warp search box. Keep those recognizable in the main screen, but replace existing command/output with the proposed CLI. Increase terminal text contrast so every relevant label is readable. Do not copy user avatar or personal info. No website widgets, rounded web buttons, decorative glow, invented Warp navigation, or Figma editor chrome. All utility interaction is monospace terminal text, a single highlighted row, arrow cursor, simple rules, and keyboard hints.
+
+Board composition: landscape, ideally 2400x1800 or larger. Professional dark charcoal surrounding canvas, generous margins, highly legible typography. Small title at top "tunnel / SSH without the command memorization" and explicit subtitle "Proposed UI — mockup". Short top note "Based on your Warp screenshot · Example SSH aliases".
+Upper half: large faithful Warp window taking roughly 70% width, with a slim review annotation column on the right. Main Warp window shows host-selection step:
+"$ tunnel"
+"New tunnel · 1 of 5"
+"Choose a machine"
+"Search: mac"
+selected teal row "❯ other-mac"
+subline "  SSH config alias"
+muted row "  lab-mac"
+footer "↑ ↓ navigate   Type to filter   Enter select"
+footer "Esc back   Ctrl+C cancel"
+Use wallpaper visible around the content, preserve main window screenshot chrome. Host examples clearly illustrative, do not suggest real SSH config has been inspected.
+Right column has three restrained cyan numbered leader callouts outside the window: "1  Your SSH config supplies the host list"; "2  One question at a time"; "3  Review before anything connects". Thin cyan lines only, no overlap on text.
+
+Below main screenshot: a tidy band of THREE equally sized enlarged terminal close-up panels, labeled outside the panels "02 / Connection details", "03 / Review & confirm", "04 / Manage tunnels". These are separate moments in the interaction, not simultaneous panes inside Warp. Use matching dark teal terminal style and crisp large monospaced text.
+
+Connection details panel:
+"✓ Machine       other-mac"
+"✓ Remote port   8790"
+"✓ Local port    8790"
+"✓ Destination   127.0.0.1"
+blank line
+"How should it run?"
+"❯ Background"
+"  Foreground"
+blank line
+"Background: return to your shell"
+"Foreground: Ctrl+C stops the tunnel"
+External caption below panel: "Ports are separate prompts; destination defaults to the selected machine."
+
+Review panel:
+"Ready to start"
+"Machine    other-mac"
+"Local      127.0.0.1:8790"
+"Remote     127.0.0.1:8790"
+"Mode       Background"
+blank line
+"❯ Start tunnel"
+"  Show command"
+"  Edit settings"
+"  Cancel"
+External caption: "Show the executable command on demand. Start requires Enter."
+
+Management panel:
+"$ tunnel"
+"Manage tunnels"
+"❯ other-mac :8790   Running"
+"  dev-server :3000  Disconnected"
+blank line
+"Selected: other-mac :8790"
+"  Details / Show command"
+"  View logs"
+"  Stop tunnel"
+"  Back"
+External caption: "Select a tunnel, then an action. Disconnected entries offer Restart."
+
+Bottom compact state strip, exactly three small meaningful terminal excerpts, labeled outside as "Connecting", "Running", "Port occupied":
+Connecting: "Connecting to other-mac…" and small note "SSH may request authentication"
+Running: "✓ Tunnel running in background" then "http://127.0.0.1:8790" and small note "Tunnel active; app health not checked"
+Port occupied: "Port 8790 is already in use" then "Choose another local port: 8791"
+These are mock examples, no claim actual tunnel has been started.
+Bottom tiny footer "Design proposal only · No tunnel started". Maintain aligned margins, complete readable labels, no overflowing or clipped text. The visual should feel like a plausible Questionary-style CLI inside the user's real terminal appearance, not an elaborate full-screen dashboard.
